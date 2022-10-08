@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Draw.me</title>
+</head>
+<body>
+    <section class="container">
+        <div id="toolbar">
+            <label for="stroke">COLOR</label>
+            <input type="color" oninput="stroke_color = this.value" placeholder="Colors">
+            <label for="stroke">SIZE</label>
+            <input type="range" min="1" max="100" value = "1" oninput="stroke_width = this.value">
+            <button onclick = "Restore()">UNDO</button>
+            <button onclick = "Clear()">CLEAR</button>
+            <button onclick = "Post()">POST.ME!</button>
+            <button onclick = "Png()">SAVE.ME!</button>
+        </div>
+        <div class="drawing-board">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="gallery">
+            <ul class = "categories">
+                <li><button class="btn active" onclick ="mona()" id= "mona">MONA LISA</button></li>
+                <li><button class="btn" onclick ="scream()" id = "scream">THE SCREAM</button></li>
+                <li><button class="btn" onclick ="gothic()" id = "gothic">AMERICAN GOTHIC</button></li>
+                <li><button class="btn" onclick ="man()" id = 'Man'>SON OF MAN</button></li>
+                <li><button class="btn" onclick ="vincent()" id = 'vincent'>VINCENT VAN GOGH</button></li>
+                <li><button class="btn" onclick ="star()" id = 'vincent'>STRARRY NIGHT</button></li>
+            </ul>
+            <div class = "frame">
+                <img id = "image" src="./public/assets/img/mona.jpg" alt="">
+            </div>
+            
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
