@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS canvas;
-CREATE DATABASE canvas;
+DROP DATABASE IF EXISTS crowdfund_db;
+CREATE DATABASE crowdfund_db;

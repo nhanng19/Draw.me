@@ -1,14 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Draw.me</title>
-</head>
-<body>
-    <section class="container">
+    <section class="paint">
         <div id="toolbar">
             <label for="stroke">COLOR</label>
             <input type="color" oninput="stroke_color = this.value" placeholder="Colors">
@@ -29,13 +19,14 @@
                 <li><button class="btn" onclick ="gothic()" id = "gothic">AMERICAN GOTHIC</button></li>
                 <li><button class="btn" onclick ="man()" id = 'Man'>SON OF MAN</button></li>
                 <li><button class="btn" onclick ="vincent()" id = 'vincent'>VINCENT VAN GOGH</button></li>
-                <li><button class="btn" onclick ="star()" id = 'vincent'>STRARRY NIGHT</button></li>
+                <li><button class="btn" onclick ="star()" id = 'star'>STARRY NIGHT</button></li>
             </ul>
             <div class = "frame">
-                <img id = "image" src="https://media.npr.org/assets/img/2012/02/02/mona-lisa_custom-31a0453b88a2ebcb12c652bce5a1e9c35730a132-s1100-c50.jpg" alt="">
+                <img id = "image" src="./img/mona.jpg" alt="">
             </div>
             
         </div>
     </section>
-    <script src="index.js"></script>
-</body>
+
+<script src="./js/paint.js"></script>
+

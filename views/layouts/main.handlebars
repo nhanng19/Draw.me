@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw.me</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+
+    <div class = "navbar">
+      <ul>
+
+        <li><a href="/">DRAW.ME</a></li>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <li><a href="/profile">SKETCH</a></li>
+        <li><a href="/">GALLERY</a></li>        
+        <li><a id="logout">LOGOUT</a></li>
+        {{else}}
+        <li><a href="/login">LOGIN</a></li>
+        {{/if}}
+      </ul>
+    </div>
+    <div>
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </div>
+
+
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

@@ -107,27 +107,27 @@ function Png() {
 // Function to render model images, can definitely make it more dynamic
 
 function mona() {
-    document.getElementById('image').src="./img/mona.jpg"
+    document.getElementById('image').src="https://media.npr.org/assets/img/2012/02/02/mona-lisa_custom-31a0453b88a2ebcb12c652bce5a1e9c35730a132-s1100-c50.jpg"
 }
 
 function star() {
-    document.getElementById('image').src="./img/star.png"
+    document.getElementById('image').src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
 }
 
 function scream() {
-    document.getElementById('image').src="./img/scream.png"
+    document.getElementById('image').src="https://interlude-cdn-blob-prod.azureedge.net/interlude-blob-storage-prod/2016/12/Edvard-Munch-The-Scream-1893.jpg"
 }
 
 function gothic() {
-    document.getElementById('image').src="./img/gothic.png"
+    document.getElementById('image').src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg/1200px-Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg"
 }
 
 function man() {
-    document.getElementById('image').src="./img/man.png"
+    document.getElementById('image').src="https://iartprints.com/art-imgs/rene_magritte/son_of_man_1964-42089.jpg"
 }
 
 function vincent() {
-    document.getElementById('image').src="./img/vincent.png"
+    document.getElementById('image').src="https://cdn.britannica.com/36/69636-050-81A93193/Self-Portrait-artist-panel-board-Vincent-van-Gogh-1887.jpg"
 }
 
 //Change button colors of selected image
