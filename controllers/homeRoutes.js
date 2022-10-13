@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Drawing, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const drawingData = await Drawing.findAll({
       include: [
         {
           model: User,
@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const drawings = drawingData.map((drawing) => drawing.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      drawings, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/drawing/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const drawingData = await Drawing.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -38,10 +38,10 @@ router.get('/project/:id', async (req, res) => {
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const drawing = drawingData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('drawing', {
+      ...drawing,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -50,12 +50,50 @@ router.get('/project/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+router.get('/sketch', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Drawing }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('sketch', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/gallery', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Drawing }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('gallery', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Drawing }],
     });
 
     const user = userData.get({ plain: true });
@@ -72,7 +110,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/sketch');
     return;
   }
 

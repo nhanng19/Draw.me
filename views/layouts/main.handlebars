@@ -17,8 +17,9 @@
         <li><a href="/">DRAW.ME</a></li>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <li><a href="/profile">SKETCH</a></li>
-        <li><a href="/">GALLERY</a></li>        
+        <li><a href="/sketch">SKETCH</a></li>
+        <li><a href="/gallery">GALLERY</a></li>
+        <li><a href="/profile">PROFILE</a></li>         
         <li><a id="logout">LOGOUT</a></li>
         {{else}}
         <li><a href="/login">LOGIN</a></li>
