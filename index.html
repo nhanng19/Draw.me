@@ -10,6 +10,12 @@
 <body>
     <section class="container">
         <div id="toolbar">
+            <div class="select">
+                <select class = "select_input" id = "selTheme">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
             <label for="stroke">COLOR</label>
             <input type="color" oninput="stroke_color = this.value" placeholder="Colors">
             <label for="stroke">SIZE</label>
@@ -22,6 +28,7 @@
         <div class="drawing-board">
             <canvas id="canvas"></canvas>
         </div>
+        
         <div class="gallery">
             <ul class = "categories">
                 <li><button class="btn active" onclick ="mona()" id= "mona">MONA LISA</button></li>
