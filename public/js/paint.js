@@ -1,3 +1,6 @@
+
+
+
 // Canvas functionality
 
 let canvas = document.getElementById("canvas");
@@ -159,5 +162,4 @@ document.addEventListener('keydown', (e) => {
     Clear()
   }
 });
-
 

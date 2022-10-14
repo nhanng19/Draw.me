@@ -117,4 +117,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get("/api/drawings", async (req, res) => {
+  try {
+    const drawings = await Drawing.findAll({ include: User });
+    res.json(drawings);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: true,
+      message: "Couldn't get drawings.",
+    });
+  }
+});
+
+
 module.exports = router;
