@@ -11,7 +11,10 @@ Drawing.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
+   drawing_url: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
