@@ -1,13 +1,10 @@
-
-
-
 // Canvas functionality
 
 let canvas = document.getElementById("canvas");
 canvas.width = 960
 canvas.height = 1000
 let ctx = canvas.getContext("2d", {preserveDrawingBuffer: true});
-ctx.fillStyle = "white";
+ctx.fillStyle = "#FAF0E6";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 let restore_array = [];
 let start_index = -1;
@@ -85,7 +82,7 @@ function Restore() {
 // Reset canvas to white color and reset index count
 
 function Clear() {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#FAF0E6";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     restore_array = [];
@@ -95,18 +92,18 @@ function Clear() {
 // Currently only console.log canvas' url. Need to make it store db in mySQL
 
 function Post() {
-  const imageData = canvas.toDataURL("image.png")
-  console.log(imageData)
+const link  = canvas.toDataURL();
+    $.post("/api/drawings", { link })
 }
 
 // Save canvas as a PNG. Currently does not work, will try to fix
 
-function Png() {
-  var dataURL = canvas.toDataURL("image/png");
-  var newTab = window.open('about:blank','image from canvas');
-  newTab.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
+var Png = function(){
+  var link = document.createElement('a');
+  link.download = 'drawing.png';
+  link.href = document.getElementById('canvas').toDataURL()
+  link.click();
 }
-
 // Function to render model images, can definitely make it more dynamic
 
 function mona() {
@@ -162,4 +159,7 @@ document.addEventListener('keydown', (e) => {
     Clear()
   }
 });
+
+
+
 
