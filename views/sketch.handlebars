@@ -1,0 +1,32 @@
+    <section class="paint">
+        <div id="toolbar">
+            <label for="stroke">COLOR</label>
+            <input type="color" oninput="stroke_color = this.value" placeholder="Colors">
+            <label for="stroke">SIZE</label>
+            <input type="range" min="1" max="100" value = "1" oninput="stroke_width = this.value">
+            <button onclick = "Restore()">UNDO</button>
+            <button onclick = "Clear()">CLEAR</button>
+            <button onclick = "Post()">POST.ME!</button>
+            <button onclick = "Png()">SAVE.ME!</button>
+        </div>
+        <div class="drawing-board">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="gallery">
+            <ul class = "categories">
+                <li><button class="btn active" onclick ="mona()" id= "mona">MONA LISA</button></li>
+                <li><button class="btn" onclick ="scream()" id = "scream">THE SCREAM</button></li>
+                <li><button class="btn" onclick ="gothic()" id = "gothic">AMERICAN GOTHIC</button></li>
+                <li><button class="btn" onclick ="man()" id = 'Man'>SON OF MAN</button></li>
+                <li><button class="btn" onclick ="vincent()" id = 'vincent'>VINCENT VAN GOGH</button></li>
+                <li><button class="btn" onclick ="star()" id = 'star'>STARRY NIGHT</button></li>
+            </ul>
+            <div class = "frame">
+                <img id = "image" src="./img/mona.jpg" alt="">
+            </div>
+            
+        </div>
+    </section>
+
+<script src="./js/paint.js"></script>
+
