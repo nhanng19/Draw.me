@@ -24,6 +24,10 @@ Drawing.init(
         key: 'id',
       },
     },
+    drawing_url: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    }
   },
   {
     sequelize,
