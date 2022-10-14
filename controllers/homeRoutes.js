@@ -4,22 +4,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const drawingData = await Drawing.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    // Serialize data so the template can read it
-    const drawings = drawingData.map((drawing) => drawing.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      drawings, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,27 +13,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/drawing/:id', async (req, res) => {
-  try {
-    const drawingData = await Drawing.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const drawing = drawingData.get({ plain: true });
-
-    res.render('drawing', {
-      ...drawing,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // Use withAuth middleware to prevent access to route
 router.get('/sketch', withAuth, async (req, res) => {
@@ -112,22 +77,9 @@ router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/sketch');
     return;
-  }
+  } 
 
   res.render('login');
-});
-
-router.get("/api/drawings", async (req, res) => {
-  try {
-    const drawings = await Drawing.findAll({ include: User });
-    res.json(drawings);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: true,
-      message: "Couldn't get drawings.",
-    });
-  }
 });
 
 
