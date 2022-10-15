@@ -4,3 +4,8 @@
                 <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
                   YOUR ART
                 </h2>
+           <div class="container grid grid-cols-4 gap-2 mx-auto">
+      {{#each drawings}}
+      {{> drawings user=this.User name=name link=link id=id}}
+      {{/each}}
+      </div>
