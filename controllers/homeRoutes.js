@@ -37,15 +37,16 @@ router.get('/sketch', withAuth, async (req, res) => {
 router.get('/gallery', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Drawing }],
-    });
-
-    const user = userData.get({ plain: true });
+    // const userData = await User.findByPk(req.session.user_id, {
+    //   attributes: { exclude: ['password'] },
+    //   include: [{ model: Drawing }],
+    // });
+    const drawingData = await Drawing.findAll({where: {id: req.session.user_id}})
+    console.log(drawingData)
+    const user = drawingData.get({ plain: true });
 
     res.render('gallery', {
-      ...user,
+      user,
       logged_in: true
     });
   } catch (err) {
