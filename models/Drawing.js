@@ -12,7 +12,7 @@ Drawing.init(
       autoIncrement: true,
     },
     link: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT('long'),
       allowNull: false
     },
     date_created: {
@@ -36,5 +36,6 @@ Drawing.init(
     modelName: 'drawing',
   }
 );
+
 
 module.exports = Drawing;

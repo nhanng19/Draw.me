@@ -15,26 +15,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// router.delete('/:id', withAuth, async (req, res) => {
-//   try {
-//     const drawingData = await Drawing.destroy({
-//       where: {
-//         id: req.params.id,
-//         user_id: req.session.user_id,
-//       },
-//     });
-
-//     if (!drawingData) {
-//       res.status(404).json({ message: 'No drawing found with this id!' });
-//       return;
-//     }
-
-//     res.status(200).json(drawingData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 
 // API ROUTES
 router.get("/", async (req, res) => {
