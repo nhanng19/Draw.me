@@ -3,7 +3,7 @@ BootCamp Project #2 - DRAW.ME
 
 ## INTRODUCTION
 
-Have you ever wanted to show off your art skills? Don't know where to launch your career as an artist in the digital age? Introducing Draw.me, a community-based drawing platform where you can share your talent with friends and community. Draw.me provides world renowned paintings as models for you to practice your drawing skills. We also provide a social networking service where users can provide feedback and interact with another user's art. What are you waiting for? Sign up today to embark on your most creative voyage yet.
+Have you ever wanted to show off your art skills? Don't know where to launch your career as an artist in the digital age? Introducing Draw.me, a community-based drawing platform where you can share your talent with friends and community. Draw.me provides world renowned paintings as models for you to practice your drawing skills. We also provide a social networking service where users can provide feedback and interact with another user's art. What are you waiting for? Sign up today to embark on an exciting creativity voyage.
 
 ![](./public/img/demo.png)
 
