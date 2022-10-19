@@ -1,13 +1,13 @@
-html {
-  overflow: hidden !important;
-}
-
 body {
   margin: 0;
   padding: 0;
   overflow: auto;
   background-color: black;
   font-family: 'Poppins', sans-serif !important;
+}
+
+.additionalBody {
+  overflow: hidden;
 }
 
 .paint {
@@ -274,8 +274,17 @@ input:focus, textarea:focus, select:focus{
   outline: none;
 }
 
-#destroy {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.footer {
+  padding: 30px;
+  clear: both;
+  text-align: center;
+  color: white
+}
+
+.footer h2 {
+  font-size: 20px;
+}
+
+.front-frame {
+  box-shadow: 0px 4px 2px -2px rgba(255, 255, 255, 0.4);
 }
