@@ -31,14 +31,13 @@ Our server uses mySQL database to store users' confidential credentials, drawing
 ![](./asset/schema.png)
 
 ### Canvas
-Our drawing application is engineered with the Canvas API. Canvas provides a means for drawing graphics via JavaScript and the HTML canvas element. 
-You can learn more about Canvas by reading this [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
+Our drawing application is engineered with the Canvas API. Canvas provides a means for drawing graphics via JavaScript and the HTML canvas element. Our Javascript function can render objects such as shapes, lines, and strokes on the Canvas element at any given space coordinates, which in our application's case, the x and y coordinates of our cursor. You can learn more about Canvas by reading this [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
 The main drawing JavaScript functionality can be examined with the following code:
 ```javascript
-function start(e) {  // activate drawing by listening to a mouseclick down
+function start(e) {  // activate drawing by listening to a mouseclick 
   is_drawing = true;
   ctx.beginPath();
-  ctx.moveTo(getX(e), getY(e));
+  ctx.moveTo(getX(e), getY(e)); // move to cursor's space coordinate
   e.preventDefault();
 }
 
@@ -49,7 +48,7 @@ function draw(e) { // start drawing on your mouse's coordinate spaces
     ctx.lineWidth = stroke_width;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.stroke();
+    ctx.stroke(); // render the path from moveTo and and lineTo
   }
   e.preventDefault();
 }
@@ -61,7 +60,7 @@ function stop(e) { // set drwaing state to false when user let go of mouse hold
     isDrawing = false;
   }
   e.preventDefault();
-  restoreArray.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  restoreArray.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); // push current imageData to our array for later restoration purposes
   startIndex += 1;
 }
 ```
