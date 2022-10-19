@@ -54,7 +54,7 @@ function draw(e) { // start drawing on your mouse's coordinate spaces
   e.preventDefault();
 }
 
-function stop(e) {
+function stop(e) { // set drwaing state to false when user let go of mouse hold
   if (isDrawing) {
     ctx.stroke();
     ctx.closePath();
