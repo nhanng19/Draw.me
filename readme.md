@@ -31,7 +31,7 @@ Our server uses mySQL database to store users' confidential credentials, drawing
 ![](./asset/schema.png)
 
 ### Canvas
-Our drawing application is engineered with canvas. The Canvas API provides a means for drawing graphics via JavaScript and the HTML canvas element. 
+Our drawing application is engineered with the Canvas API. Canvas provides a means for drawing graphics via JavaScript and the HTML canvas element. 
 You can learn more about Canvas by reading this [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
 The main drawing JavaScript functionality can be examined with the following code:
 ```javascript
