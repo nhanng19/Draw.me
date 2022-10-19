@@ -53,6 +53,17 @@ function draw(event) { // start drawing on your mouse's coordinate spaces
   }
   event.preventDefault();
 }
+
+function stop(e) {
+  if (isDrawing) {
+    ctx.stroke();
+    ctx.closePath();
+    isDrawing = false;
+  }
+  e.preventDefault();
+  restoreArray.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  startIndex += 1;
+}
 ```
 
 ### Tailwind CSS
