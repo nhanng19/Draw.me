@@ -35,14 +35,14 @@ Our drawing application is engineered with the Canvas API. Canvas provides a mea
 The main drawing JavaScript functionality can be examined with the following code:
 ```javascript
 function start(e) {  // activate drawing by listening to a mouseclick 
-  is_drawing = true;
+  isDrawing = true;
   ctx.beginPath();
   ctx.moveTo(getX(e), getY(e)); // move to cursor's space coordinate
   e.preventDefault();
 }
 
 function draw(e) { // start drawing on your mouse's coordinate spaces
-  if (is_drawing) {
+  if (isDrawing) {
     ctx.lineTo(getX(e), getY(e));
     ctx.strokeStyle = stroke_color;
     ctx.lineWidth = stroke_width;
