@@ -48,7 +48,7 @@ function draw(e) { // start drawing on your mouse's coordinate spaces
     ctx.lineWidth = stroke_width;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.stroke(); // render the path from moveTo and and lineTo
+    ctx.stroke(); // render the path from moveTo and lineTo
   }
   e.preventDefault();
 }
