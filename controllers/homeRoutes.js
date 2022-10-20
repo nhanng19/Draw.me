@@ -1,41 +1,38 @@
-const router = require('express').Router();
-const { Drawing, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Drawing, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
-
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      logged_in: req.session.logged_in 
+    res.render("homepage", {
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
 // Use withAuth middleware to prevent access to route
-router.get('/sketch', withAuth, async (req, res) => {
+router.get("/sketch", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('sketch', {
+    res.render("sketch", {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get('/gallery', async (req, res) => {
+router.get("/gallery", async (req, res) => {
   try {
     const drawingData = await Drawing.findAll({
       include: [
@@ -45,68 +42,65 @@ router.get('/gallery', async (req, res) => {
       ],
     });
     const drawings = drawingData.map((drawing) => drawing.get({ plain: true }));
-    res.render('gallery', { 
+    res.render("gallery", {
       drawings,
       username: req.session.user && req.session.user.name,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get('/profile', withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Drawing}],
+      attributes: { exclude: ["password"] },
+      include: [{ model: Drawing }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render("profile", {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get('/drawing/:id', async (req, res) => {
+router.get("/drawing/:id", async (req, res) => {
   try {
     const drawingData = await Drawing.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          model: Comment
+          model: Comment,
         },
       ],
     });
     const drawing = drawingData.get({ plain: true });
-    const comment = drawing.comments
-    res.render('single', {
+    const comment = drawing.comments;
+    res.render("single", {
       ...drawing,
       ...comment,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/sketch');
+    res.redirect("/sketch");
     return;
-  } 
+  }
 
-  res.render('login');
+  res.render("login");
 });
 
 router.delete("/api/drawings/:id", async (req, res) => {

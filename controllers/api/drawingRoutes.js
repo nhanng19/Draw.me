@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const { Drawing, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Drawing, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const newDrawing = await Drawing.create({
       ...req.body,
@@ -14,7 +14,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 // API ROUTES
 router.get("/", async (req, res) => {
@@ -46,8 +45,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
-
 module.exports = router;
-
-

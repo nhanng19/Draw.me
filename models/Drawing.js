@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Drawing extends Model {}
 
@@ -12,8 +12,8 @@ Drawing.init(
       autoIncrement: true,
     },
     link: {
-      type: DataTypes.TEXT('long'),
-      allowNull: false
+      type: DataTypes.TEXT("long"),
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
@@ -23,8 +23,8 @@ Drawing.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -33,9 +33,8 @@ Drawing.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'drawing',
+    modelName: "drawing",
   }
 );
-
 
 module.exports = Drawing;
