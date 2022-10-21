@@ -1,3 +1,8 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![MIT License][license-shield]][license-url]
+
 # DRAW.ME 👨‍🎨
 BootCamp Project #2 - DRAW.ME
 
@@ -93,3 +98,12 @@ This project was uploaded to GitHub at the following repository link:
 
 Deployed Web Application Link:
 [https://draw-me.herokuapp.com/](https://draw-me.herokuapp.com/)
+
+[contributors-shield]: https://img.shields.io/github/contributors/nhanng19/Draw.me.svg?style=for-the-badge
+[contributors-url]: https://github.com/nhanng19/Draw.me/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/nhanng19/Draw.me.svg?style=for-the-badge
+[forks-url]: https://github.com/nhanng19/Draw.me/network/members
+[stars-shield]: https://img.shields.io/github/stars/nhanng19/Draw.me.svg?style=for-the-badge
+[stars-url]: https://github.com/nhanng19/draw.me/stargazers
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
