@@ -16,10 +16,7 @@
 
     <div class = "navbar">
       <ul>
-
         <li><a href="/">DRAW.ME</a></li>
-        
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <li><a href="/sketch">SKETCH</a></li>
         <li><a href="/gallery">GALLERY</a></li>
@@ -32,16 +29,13 @@
       </ul>
     </div>
     <div>
-      <!-- Render the sub layout -->
       {{{ body }}}
-      
     </div>
-
-  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-    <script src="/js/paint.js"></script>
+    <script src="/js/button.js"></script>
+    <script src="/js/paint.js"></script> 
 </body>
 
 </html>
