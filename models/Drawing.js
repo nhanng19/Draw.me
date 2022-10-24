@@ -12,7 +12,7 @@ Drawing.init(
       autoIncrement: true,
     },
     link: {
-      type: DataTypes.TEXT("long"),
+      type: DataTypes.TEXT("long"), // Necessary to store base 64 encoded data URL; otherwise payload would be too big
       allowNull: false,
     },
     date_created: {
