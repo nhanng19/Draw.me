@@ -102,12 +102,25 @@ li button {
   font-family: "Poppins", sans-serif;
 }
 
-img {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
+.frame {
+    width: 940px;
+   height: 1000px;
 }
 
+.frame img {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+
+}
+
+
+#img {
+  object-fit: cover;
+  
+}
 .active,
 .btn:hover {
   background-color: #666;
@@ -182,9 +195,6 @@ li a:hover {
   animation: slide 16s infinite;
 }
 
-img {
-  width: 100%;
-}
 
 .info {
   position: relative;
@@ -255,6 +265,7 @@ select:focus {
   font-size: 20px;
 }
 
+
 .front-frame {
   box-shadow: 0px 4px 2px -2px rgba(255, 255, 255, 0.4);
 }
@@ -285,3 +296,4 @@ select:focus {
     transform: translateX(-300%);
   }
 }
+

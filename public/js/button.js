@@ -31,41 +31,4 @@ var Png = function () {
   link.click();
 };
 
-// Function to render model images
 
-function mona() {
-  document.getElementById("image").src = "../img/mona.jpg";
-}
-
-function star() {
-  document.getElementById("image").src = "../img/star.png";
-}
-
-function scream() {
-  document.getElementById("image").src = "../img/scream.png";
-}
-
-function gothic() {
-  document.getElementById("image").src = "../img/gothic.png";
-}
-
-function man() {
-  document.getElementById("image").src =
-    "https://iartprints.com/art-imgs/rene_magritte/son_of_man_1964-42089.jpg";
-}
-
-function vincent() {
-  document.getElementById("image").src =
-    "https://cdn.britannica.com/36/69636-050-81A93193/Self-Portrait-artist-panel-board-Vincent-van-Gogh-1887.jpg";
-}
-
-//Change button colors of selected image
-
-var btns = document.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}

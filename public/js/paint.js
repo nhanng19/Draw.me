@@ -1,4 +1,4 @@
-// Canvas functionality
+// Setup Canvas
 
 let canvas = document.getElementById("canvas");
 canvas.width = 960;
@@ -24,7 +24,7 @@ function getY(e) {
   return e.pageY - canvas.offsetTop;
 }
 
-function start(e) { // activate drawing by listening to a mouseclick
+function start(e) { // activate drawing by listening to a mouseclick // e.preventDefault is necessary to prevent mouse's selecting default behavior 
   isDrawing = true;
   ctx.beginPath();
   ctx.moveTo(getX(e), getY(e)); // move to cursor's space coordinate
@@ -86,20 +86,7 @@ canvas.addEventListener("mousemove", draw, false);
 canvas.addEventListener("mouseup", stop, false);
 canvas.addEventListener("mouseout", stop, false);
 
-// Key shortcut Ctrl + Z to undo an image
 
-document.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  if ((e.metaKey || e.ctrlKey) && e.code === "KeyZ") {
-    Restore();
-  }
-});
 
-// Key shortcut Ctrl + X to undo an image
 
-document.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  if ((e.metaKey || e.ctrlKey) && e.code === "KeyX") {
-    Clear();
-  }
-});
+
