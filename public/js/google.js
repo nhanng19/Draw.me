@@ -16,15 +16,16 @@ searchbar.addEventListener("keyup", function (event) {
 // Loading screen while fetching image
 
 const getImage = (input) => {
-  const apiKey = "9445FAF150214D1296DE7B7312F18AF5"; 
+  const apiKey = "9445FAF150214D1296DE7B7312F18AF5"; // Temporary Public API Key, if request run low, visit https://app.scaleserp.com/ 
   imageContainer.src = "../img/loading.gif";
   fetch(
-    `https://api.scaleserp.com/search?api_key=${apiKey}&search_type=images&images_size=medium&q=${input}`
+    `https://api.scaleserp.com/search?api_key=${apiKey}&search_type=images&images_size=medium&q=${input}` // We'll consistently update this api key
   )
     .then((response) => {
       response.json().then((data) => {
         console.log(data.images_results);
-        for (let i = 0; i < 4; i++) { // Necessary to filter out low resolution images that otherwise wouldn't load
+        for (let i = 0; i < 4; i++) {
+          // Necessary to filter out low resolution images that otherwise wouldn't load
           if (data.image_results[i].width > 400) {
             const image = data.image_results[i].image;
             imageContainer.src = image;
