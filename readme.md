@@ -14,7 +14,7 @@ Have you ever wanted to show off your art skills? Don't know where to launch you
 
 ## INSTALLATION
 
-You can start drawing today by creating an account on our deployed website [here](https://draw-me.herokuapp.com/).
+You can start drawing today by creating an account on our deployed website [here](https://drawme.herokuapp.com/).
 
 ### TO RUN LOCALLY
 1. Clone/download the code in this repo
@@ -97,7 +97,7 @@ This project was uploaded to GitHub at the following repository link:
 [https://github.com/nhanng19/Draw.me](https://github.com/nhanng19/Draw.me)
 
 Deployed Web Application Link:
-[https://draw-me.herokuapp.com/](https://draw-me.herokuapp.com/)
+[https://drawme.herokuapp.com/](https://drawme.herokuapp.com/)
 
 [contributors-shield]: https://img.shields.io/github/contributors/nhanng19/Draw.me.svg?style=for-the-badge
 [contributors-url]: https://github.com/nhanng19/Draw.me/graphs/contributors
