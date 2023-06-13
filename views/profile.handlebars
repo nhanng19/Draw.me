@@ -8,7 +8,7 @@
       <div class="container grid grid-cols-3 gap-2 mx-auto">
       {{#each drawings as |drawing|}}
         <div class="w-full info images">
-          <a href = "/"><img src="{{ link }}" alt="image" class="rounded-md border-double"></a>
+          <a href = "/"><img src="{{ link }}" alt="image" class="rounded-md h-full border-double"></a>
           <div class="overlay">
             <a href="/drawing/{{drawing.id}}"><div class="text">{{ this.date_created }}</div></a>
           </div>
