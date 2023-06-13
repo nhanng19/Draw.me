@@ -11,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      host: 'containers-us-west-210.railway.app',
+      host: process.env.DB_HOST,
       dialect: 'mysql',
       port: 5995
     }
