@@ -97,7 +97,7 @@ This project was uploaded to GitHub at the following repository link:
 [https://github.com/nhanng19/Draw.me](https://github.com/nhanng19/Draw.me)
 
 Deployed Web Application Link:
-[https://drawme.herokuapp.com/](https://drawme.herokuapp.com/)
+[https://drawme.up.railway.app/](https://drawme.up.railway.app/)
 
 [contributors-shield]: https://img.shields.io/github/contributors/nhanng19/Draw.me.svg?style=for-the-badge
 [contributors-url]: https://github.com/nhanng19/Draw.me/graphs/contributors
