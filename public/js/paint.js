@@ -1,8 +1,8 @@
 // Setup Canvas
 
 let canvas = document.getElementById("canvas");
-canvas.width = 960;
-canvas.height = 1000;
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
 let ctx = canvas.getContext("2d", { preserveDrawingBuffer: true });
 ctx.fillStyle = "#FAF0E6";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -12,7 +12,7 @@ let strokeColor = "black";
 let strokeWidth = "2";
 let isDrawing = false;
 
-// Return current x-coordinate of mouse position
+// Call the resizeCanvas function initially to set the initial size
 
 function getX(e) {
   return e.pageX - canvas.offsetLeft;

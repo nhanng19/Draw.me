@@ -103,8 +103,8 @@ li button {
 }
 
 .frame {
-    width: 940px;
-   height: 1000px;
+  width: 940px;
+  height: 1000px;
 }
 
 .frame img {
@@ -113,13 +113,10 @@ li button {
   width: auto;
   height: auto;
   object-fit: cover;
-
 }
-
 
 #img {
   object-fit: cover;
-  
 }
 .active,
 .btn:hover {
@@ -195,7 +192,6 @@ li a:hover {
   animation: slide 16s infinite;
 }
 
-
 .info {
   position: relative;
 }
@@ -265,11 +261,28 @@ select:focus {
   font-size: 20px;
 }
 
-
 .front-frame {
   box-shadow: 0px 4px 2px -2px rgba(255, 255, 255, 0.4);
 }
 
+.drawing-container {
+  display: flex;
+  width: 100%;
+}
+.gallery,
+#canvas {
+  flex: 1;
+}
+#image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 @keyframes slide {
   0% {
     transform: translateX(0);
@@ -296,4 +309,3 @@ select:focus {
     transform: translateX(-300%);
   }
 }
-
