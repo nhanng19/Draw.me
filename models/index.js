@@ -8,8 +8,13 @@ User.hasMany(Drawing, {
 });
 
 Drawing.hasMany(Comment, {
+  foreignKey: "drawing_id",
   onDelete: "CASCADE",
 });
+
+Comment.belongsTo(User, {
+  foreignKey: "user_id",
+})
 
 Drawing.belongsTo(User, {
   foreignKey: "user_id",

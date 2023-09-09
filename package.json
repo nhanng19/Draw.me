@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "seed": "node seeds/seed.js"
   },
   "keywords": [],
@@ -20,8 +20,11 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "handlebars-helpers": "^0.10.0",
+    "jsdom": "^22.1.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
     "mysql2": "^2.2.5",
+    "nodemon": "^3.0.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {

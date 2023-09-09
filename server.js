@@ -5,14 +5,23 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const axios = require("axios");
-
+const moment = require ("moment")
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({
+  helpers: {
+    formatDate: function (dateString) {
+      return moment(dateString).format("MM/DD/YYYY"); // Adjust the format as needed
+    },
+    isCurrentUser: function (userId, currentUserId) {
+      return userId === currentUserId;
+    },
+  },
+});
 
 const sess = {
   secret: 'Super secret secret',

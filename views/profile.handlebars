@@ -1,16 +1,16 @@
-<div class="bg-black hidden lg:block w-full  h-screen">
+<div class="bg-black lg:block w-full  h-screen">
         <div class="grid h-screen place-items-center px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                 <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
                   YOUR ART
                 </h2>
  </div>
-      <div class="container grid grid-cols-3 gap-2 mx-auto">
+      <div class="container flex flex-col md:grid md:grid-cols-3 gap-2 mx-auto">
       {{#each drawings as |drawing|}}
         <div class="w-full info images">
           <a href = "/"><img src="{{ link }}" alt="image" class="rounded-md h-full border-double"></a>
           <div class="overlay">
-            <a href="/drawing/{{drawing.id}}"><div class="text">{{ this.date_created }}</div></a>
+            <a href="/drawing/{{drawing.id}}"><div class="text">{{ formatDate this.date_created }}</div></a>
           </div>
         </div>        
       {{/each}}

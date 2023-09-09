@@ -26,23 +26,27 @@ router.get("/drawing/:id", async (req, res) => {
       include: [
         {
           model: User,
-          model: Comment,
+        },
+        {
+          model: Comment, // Include the Comment model
+          include: User, // Include the User model within the Comment model
         },
       ],
     });
     const drawing = drawingData.get({ plain: true });
     const comment = drawing.comments;
+    const currentUserId = req.session.user_id
+    console.log(comment)
     res.render("single", {
       ...drawing,
       ...comment,
+      currentUserId,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
 
 router.delete("/api/drawings/:id", async (req, res) => {
   try {
@@ -68,8 +72,10 @@ router.get("/comment/:postId", async (req, res) => {
 
 router.post("/comment", async (req, res) => {
   const comment = req.body;
-  await Comment.create(comment);
+  await Comment.create({ ...comment, user_id: req.session.user_id });
   res.json(comment);
 });
+
+
 
 module.exports = router;

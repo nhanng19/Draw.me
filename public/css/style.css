@@ -17,12 +17,12 @@ body {
 }
 
 #toolbar {
+  display: flex;
   flex-direction: column;
   padding: 5px;
   width: 100px;
   background-color: #000000;
   text-align: center;
-  justify-content: center;
   color: white;
 }
 
@@ -67,15 +67,10 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 10px;
   color: black;
   text-align: center;
-  height: 50px;
-  width: 70px;
+  padding: 1rem;
+  width: 100%;
   margin-top: 10;
   cursor: pointer;
-}
-
-.gallery {
-  flex: 1;
-  position: relative;
 }
 
 ul {
@@ -136,6 +131,23 @@ li button {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+@media screen and (max-width: 756px) {
+  .navbar {
+    font-size: 0.7rem;
+  }
+  #toolbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #toolbar button {
+    padding: 10px;
+  }
 }
 
 .navbar li {
@@ -223,11 +235,14 @@ li a:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .drawing {
-  height: 752px;
-  width: 720px;
+  width: 80%;
+  height: 80%;
   border-radius: 8px;
   box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
   border: solid 30px #eee;
@@ -242,6 +257,7 @@ li a:hover {
 .drawing-a {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 input:focus,
@@ -268,10 +284,12 @@ select:focus {
 .drawing-container {
   display: flex;
   width: 100%;
+  height: 100vh;
+  max-height: 100vh;
 }
 .gallery,
 #canvas {
-  flex: 1;
+  width: 50%;
 }
 #image {
   width: 100%;
@@ -280,9 +298,18 @@ select:focus {
 }
 #canvas {
   display: block;
-  width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 756px) {
+  .gallery {
+    display: none;
+  }
+  #canvas {
+    width: 100%;
+  }
+}
+
 @keyframes slide {
   0% {
     transform: translateX(0);
