@@ -241,8 +241,8 @@ li a:hover {
 }
 
 .drawing {
-  width: 90%;
-  height: 90%;
+  width: 80vh;
+  height: auto;
   border-radius: 8px;
   box-shadow: 10px 25px 30px rgba(30, 30, 200, 0.3);
   border: solid 30px #eee;
