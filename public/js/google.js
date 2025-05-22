@@ -1,38 +1,48 @@
-// Take search bar input and fetch image from scaleSerp Google API
+// Take search bar input and fetch image from SerpApi
+const SERP_API_KEY = '3a622712c36522d8b90dd1b79dd84dda5cd08ce070c87d67671cd7332083348a'; // Get free key from https://serpapi.com/
 
 var imageContainer = document.getElementById("image");
 var searchbar = document.querySelector(".search");
 var message = document.getElementById("message");
+
 searchbar.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
     message.style.display = "none";
-    var getData = searchbar.value;
-    var input = getData.replace(/ /g, "%20");
-    getImage(input);
+    var searchQuery = searchbar.value.trim();
+    if (searchQuery) {
+      getImage(searchQuery);
+    }
   }
 });
 
-// Loading screen while fetching image
+const getImage = async (query) => {
+  try {
+    imageContainer.src = "../img/loading.gif";
+    
+    const response = await fetch(
+      `https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(query)}&tbm=isch&api_key=${SERP_API_KEY}`
+    );
 
-const getImage = (input) => {
-  const apiKey = "9445FAF150214D1296DE7B7312F18AF5"; // Temporary Public API Key, if request run low, visit https://app.scaleserp.com/
-  imageContainer.src = "../img/loading.gif";
-  fetch(
-    `https://api.scaleserp.com/search?api_key=${apiKey}&search_type=images&images_size=medium&q=${input}` // We'll consistently update this api key
-  )
-    .then((response) => {
-      response.json().then((data) => {
-        console.log(data.images_results);
-        for (let i = 0; i < 4; i++) {
-          // Necessary to filter out low resolution images that otherwise wouldn't load
-          if (data.image_results[i].width > 400) {
-            const image = data.image_results[i].image;
-            return imageContainer.src = image;
-          }
-        }
-      });
-    })
-    .catch((error) => {
-      throw error;
-    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch image');
+    }
+
+    const data = await response.json();
+    
+    if (data.images_results && data.images_results.length > 0) {
+      // Get the first image that has a good size
+      const image = data.images_results.find(img => img.original_width > 400);
+      if (image) {
+        imageContainer.src = image.original;
+      } else {
+        imageContainer.src = data.images_results[0].original;
+      }
+    } else {
+      throw new Error('No images found');
+    }
+  } catch (error) {
+    console.error('Error fetching image:', error);
+    message.style.display = "block";
+    message.textContent = "Failed to load image. Please try again.";
+  }
 };
