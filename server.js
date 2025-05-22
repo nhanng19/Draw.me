@@ -50,6 +50,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Image search route
+app.get('/api/search-image', async (req, res) => {
+  try {
+    const { q } = req.query;
+    if (!q) {
+      return res.status(400).json({ error: 'Search query is required' });
+    }
+
+    const SERP_API_KEY = '3a622712c36522d8b90dd1b79dd84dda5cd08ce070c87d67671cd7332083348a';
+    const response = await axios.get(
+      `https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(q)}&tbm=isch&api_key=${SERP_API_KEY}`
+    );
+
+    if (response.data.images_results && response.data.images_results.length > 0) {
+      // Get the first image that has a good size
+      const image = response.data.images_results.find(img => img.original_width > 400);
+      const imageUrl = image ? image.original : response.data.images_results[0].original;
+      return res.json({ imageUrl });
+    }
+
+    return res.status(404).json({ error: 'No images found' });
+  } catch (error) {
+    console.error('Error searching for image:', error);
+    return res.status(500).json({ error: 'Failed to search for image' });
+  }
+});
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
