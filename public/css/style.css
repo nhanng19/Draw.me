@@ -206,6 +206,8 @@ li a:hover {
 
 .info {
   position: relative;
+  overflow: hidden;
+  border-radius: 0.375rem;
 }
 
 .overlay {
@@ -218,7 +220,8 @@ li a:hover {
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.375rem;
 }
 
 .info:hover .overlay {
