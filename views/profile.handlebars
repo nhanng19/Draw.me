@@ -5,12 +5,12 @@
                   YOUR ART
                 </h2>
  </div>
-      <div class="container flex flex-col md:grid md:grid-cols-3 gap-2 mx-auto">
+      <div class="container flex flex-col md:grid md:grid-cols-3 gap-4 mx-auto">
       {{#each drawings as |drawing|}}
-        <div class="w-full info images">
-          <a href = "/"><img src="{{ link }}" alt="image" class="rounded-md h-full border-double object-covert"></a>
+        <div class="w-full h-64 info images">
+          <a href="/"><img src="{{link}}" alt="image" class="w-full h-full rounded-md object-cover"></a>
           <div class="overlay">
-            <a href="/drawing/{{drawing.id}}"><div class="text">{{ formatDate this.date_created }}</div></a>
+            <a href="/drawing/{{drawing.id}}"><div class="text">{{formatDate this.date_created}}</div></a>
           </div>
         </div>        
       {{/each}}
